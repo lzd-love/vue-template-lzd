@@ -1,31 +1,4 @@
 {
-  "_from": "vue-template-lzd",
-  "_id": "vue-template-lzd@0.0.1",
-  "_inBundle": false,
-  "_integrity": "sha512-qs7pTF2sGVMJz3EIpWsFS0WfmGatP1cJldAfDtrR3tcZR+oWUvKfBERrZtP6HUr6mbHJk6voYZytwDFkxg0UXg==",
-  "_location": "/vue-template-lzd",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "vue-template-lzd",
-    "name": "vue-template-lzd",
-    "escapedName": "vue-template-lzd",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/vue-template-lzd/-/vue-template-lzd-0.0.1.tgz",
-  "_shasum": "c53dc30c75e4ac7102ddd11e1c872e6ef3eef29d",
-  "_spec": "vue-template-lzd",
-  "_where": "F:\\dctcy",
-  "author": {
-    "name": "lzd"
-  },
   "bundleDependencies": false,
   "dependencies": {
     "axios": "^0.20.0",
@@ -57,7 +30,9 @@
     "prettier": "^1.19.1",
     "vue-cli-plugin-element": "~1.0.1",
     "vue-cli-plugin-moment": "~0.1.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -76,5 +51,6 @@
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve"
   },
+  "license": "ISC",
   "version": "0.0.1"
 }

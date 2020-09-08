@@ -1,3 +1,10 @@
+<!--
+ * @Author: lzd
+ * @Date: 2020-09-07 14:15:07
+ * @LastEditors: lzd
+ * @LastEditTime: 2020-09-08 00:51:22
+ * @Description: content description
+-->
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png" />
@@ -38,3 +45,4 @@ div {
   box-sizing: border-box;
 }
 </style>
+<style lang="less"></style>

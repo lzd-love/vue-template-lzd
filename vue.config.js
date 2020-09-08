@@ -2,13 +2,13 @@
  * @Author: lzd
  * @Date: 2020-09-04 08:54:44
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-07 13:35:22
+ * @LastEditTime: 2020-09-07 16:28:01
  * @Description: content description
  */
 const path = require("path"); //引入path模块
 module.exports = {
-  outputDir: path.resolve(__dirname, 'dist/'),
-  assetsDir: 'static',
+  outputDir: path.resolve(__dirname, "dist/"),
+  assetsDir: "static",
   configureWebpack: {
     // output: {
     //   path: path.resolve(__dirname, 'dist/'),

@@ -1,59 +1,93 @@
 /*
  * @Author: lzd
- * @Date: 2020-09-07 11:16:00
+ * @Date: 2020-09-07 18:57:36
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-07 13:51:01
+ * @LastEditTime: 2020-09-07 20:07:58
  * @Description: content description
  */
+var express = require("express");
+var app = express(); //使用nodejs自带的http、https模块
+var https = require("https");
 var http = require("http");
 var fs = require("fs");
-var url = require("url");
 var path = require("path");
-var cp  = require('child_process')
+var proxy = require("http-proxy-middleware");
+var cp = require("child_process");
+var url = require("url");
+var history = require("connect-history-api-fallback");
 
-//创建服务器
-http.createServer(function (req, res) {
-    //得到地址
-    console.log(url.parse(req.url))
-    var pathname = url.parse(req.url).pathname;
-    //判断是文件地址还是文件夹地址，如果是文件夹地址那么自动请求文件夹中的index.html
-    // if(pathname.indexOf(".") == -1){
-    //     pathname += "/index.html";
-    // }
-    var fileURL = ".."+ (pathname.indexOf('dist')>-1?'':'/dist') + pathname;
-    //得到拓展名
-    var extname = path.extname(fileURL);
-    fileURL = fileURL.indexOf('static')>-1?fileURL:'../dist/index.html';
-    // console.log(fileURL)
-    //把文件读出来
-    fs.readFile(path.join(__dirname, fileURL), function(err, data){
-        if(err){
-            //文件不存在
-            res.writeHead(404, {"Content-Type":"text/html;charset=UTF8"});
-            res.end("404!页面没有找到！~");
+var privateKey = fs.readFileSync(path.join(__dirname, "./key/key.pem"), "utf8");
+var certificate = fs.readFileSync(
+  path.join(__dirname, "./key/key-cert.pem"),
+  "utf8"
+);
+var credentials = { key: privateKey, cert: certificate };
+
+app.use(
+  history({
+    rewrites: [
+      {
+        //访问路径含dist则继续访问
+        from: /^\/static\/.*$/,
+        to: function(context) {
+          return context.parsedUrl.pathname;
         }
-        var mime = getMime(fileURL.indexOf('static')>-1?extname:'.html', function (mime) {
-            res.writeHead(200, {"Content-Type":mime});
-            res.end(data);
-        });
-    });
-}).listen(9080, "127.0.0.1");
-
-cp.exec('start chrome 127.0.0.1:9080/')
-function getMime(extname, callback) {
-    //读取文件
-    fs.readFile(path.join(__dirname, "./mime.json"), function (err, data) {
-        if(err){
-            throw Error("找不到mime.json文件");
+      },
+      {
+        //后缀为js|css 访问dist下相应文件
+        from: /^\/.*[js|css]$/,
+        to: function(context) {
+          return "/static";
         }
-        //转成JSON
-        var mimeJSON = JSON.parse(data);
-        var mime = mimeJSON[extname] || "text/plain";
-        callback(mime);
-    });
-}
+      },
+      {
+        //访问路径不含dist则默认访问/dist/index.html
+        from: /^\/.*$/,
+        to: function(context) {
+          return "/";
+        }
+      }
+    ]
+  })
+);
 
+app.use(express.static(path.join(__dirname, "../dist")));
+app.use(
+  "/api",
+  proxy({
+    // 代理跨域目标接口
+    target: "https://192.168.0.146:24684",
+    changeOrigin: true,
 
+    // 修改响应头信息，实现跨域并允许带cookie
+    onProxyRes: function(proxyRes, req, res) {
+      res.header("Access-Control-Allow-Origin", "*");
+    }
+    // 修改响应信息中的cookie域名
+    //  cookieDomainRewrite: ''  // 可以为false，表示不修改
+  })
+);
 
+app.post("/", function(req, res) {
+  console.log("主页 POST 请求");
+  res.send("Hello POST");
+});
 
+//创建http与HTTPS服务器
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+//可以分别设置http、https的访问端口号
 
+var PORT = 8900;
+var SSLPORT = 8901;
+//创建http服务器
+
+httpServer.listen(PORT, function() {
+  console.log("HTTP Server is running on: http://localhost:%s", PORT);
+});
+//创建https服务器
+httpsServer.listen(SSLPORT, function() {
+  console.log("HTTPS Server is running on: https://localhost:%s", SSLPORT);
+}); //可以根据请求判断是http还是https
+
+cp.exec("start chrome https://127.0.0.1:8901/");
