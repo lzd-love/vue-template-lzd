@@ -79,7 +79,7 @@ export default {
   },
   created() {
     testApi
-      .testAplicationProxy({value:'世界和平1'})
+      .testAplicationProxy({ value: "世界和平1" })
       .then(res => {
         console.log(res);
       })
