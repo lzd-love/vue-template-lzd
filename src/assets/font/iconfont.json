@@ -1,0 +1,16 @@
+{
+  "id": "2057595",
+  "name": "EPM",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9512694",
+      "name": "返回",
+      "font_class": "withdraw-fill",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    }
+  ]
+}

@@ -20,13 +20,14 @@
         active-text-color="#ffd04b"
         style="border:none"
       >
-        <el-submenu index="1">
+        <!-- <el-submenu index="1">
           <template slot="title">
             <span>设备监测</span>
           </template>
           <el-menu-item index="1-1">设备信息实时监测</el-menu-item>
           <el-menu-item index="1-2">异常信息报警</el-menu-item>
-        </el-submenu>
+        </el-submenu> -->
+        <el-menu-item index="1">设备监测</el-menu-item>
         <el-submenu index="2">
           <template slot="title">
             <!-- <i class="el-icon-location"></i> -->
@@ -141,7 +142,7 @@ export default {
   font-size: 16px;
 }
 .frame-view >>> .menu-bar > li {
-  border-bottom: 1px solid #6b6963;
+  border-bottom: 1px solid #928f84;
 }
 .frame-view >>> .menu-bar > li:nth-last-child(1) {
   border-bottom: none;

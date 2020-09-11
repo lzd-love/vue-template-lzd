@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-03 23:59:26
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-07 09:59:17
+ * @LastEditTime: 2020-09-09 15:17:13
  * @Description: content description
  */
 import Vue from "vue";
@@ -17,6 +17,12 @@ import echarts from "echarts";
 import axios from "axios";
 import VueECharts from "./components/ECharts";
 import config from "@config/Global.config";
+
+import "@assets/less/skin.less";
+import "@assets/less/import.less";
+
+// import '../node_modules/echarts/map/js/china.js'
+import "../node_modules/echarts/dist/extension/bmap.min.js";
 
 Vue.config.productionTip = false;
 Vue.prototype.appConfig = config;

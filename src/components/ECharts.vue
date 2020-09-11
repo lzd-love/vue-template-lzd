@@ -4,8 +4,8 @@
 
 <style>
 .echarts {
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 </style>
 
@@ -25,7 +25,8 @@ export default {
     group: String,
     autoresize: Boolean,
     watchShallow: Boolean,
-    manualUpdate: Boolean
+    manualUpdate: Boolean,
+    bmapStyleId: String
   },
   data() {
     return {
@@ -109,7 +110,17 @@ export default {
       }
 
       const chart = echarts.init(this.$el, this.theme, this.initOptions);
-
+      if (this.bmapStyleId) {
+        this.$nextTick(() => {
+          var bmap = chart
+            .getModel()
+            .getComponent("bmap")
+            .getBMap();
+          bmap.setMapStyleV2({
+            styleId: this.bmapStyleId
+          });
+        });
+      }
       if (this.group) {
         chart.group = this.group;
       }

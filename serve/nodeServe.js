@@ -90,4 +90,4 @@ httpsServer.listen(SSLPORT, function() {
   console.log("HTTPS Server is running on: https://localhost:%s", SSLPORT);
 }); //可以根据请求判断是http还是https
 
-cp.exec("start chrome https://127.0.0.1:8901/");
+cp.exec("start chrome http://127.0.0.1:8900/");
