@@ -2,51 +2,51 @@ window.TILE_VERSION = {
     "ditu": {
         "normal": {
             "version": "088",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "satellite": {
             "version": "009",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "normalTraffic": {
             "version": "081",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "satelliteTraffic": {
             "version": "083",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "mapJS": {
             "version": "104",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "satelliteStreet": {
             "version": "083",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "earthVector": {
             "version": "001",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         }
     },
     "webapp": {
         "high_normal": {
             "version": "001",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "lower_normal": {
             "version": "002",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         }
     },
     "api_for_mobile": {
         "vector": {
             "version": "002",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         },
         "vectorIcon": {
             "version": "002",
-            "updateDate": "20200908"
+            "updateDate": "20200910"
         }
     }
 };
@@ -3597,7 +3597,6 @@ window.BMAP_AUTHENTIC_KEY = "OS73ksFzj9emYwMfGhC72reaYRMy7jQE";
         return 5 === b && a instanceof J ? new Q(a.lng,a.lat) : a
     }
     ;function oa(a, b) {
-        if(/^http/.test(a)) return
         if (b) {
             var c = (1E5 * Math.random()).toFixed(0);
             D._rd["_cbk" + c] = function(a) {

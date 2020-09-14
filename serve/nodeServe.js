@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-07 18:57:36
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-07 20:07:58
+ * @LastEditTime: 2020-09-14 17:06:57
  * @Description: content description
  */
 var express = require("express");
@@ -44,9 +44,9 @@ app.use(
         //访问路径不含dist则默认访问/dist/index.html
         from: /^\/.*$/,
         to: function(context) {
-          return "/";
+          return "./";
         }
-      }
+      },
     ]
   })
 );

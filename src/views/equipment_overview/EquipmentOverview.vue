@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-08 13:23:01
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-10 10:27:20
+ * @LastEditTime: 2020-09-14 09:36:12
  * @Description: content description
 -->
 <template>
@@ -41,6 +41,7 @@
               <div class="equipment-list-title">设备位置信息</div>
               <div class="equipment-list-content">
                 <v-chart
+                  v-if="mapShow"
                   class="map-chart"
                   ref="map"
                   :options="mapChartOption"
@@ -65,6 +66,7 @@ export default {
   },
   data() {
     return {
+      mapShow: true,
       mapChartOption: {
         // backgroundColor: "transparent",
         tooltip: {
@@ -215,10 +217,20 @@ export default {
       return res;
     }
   },
-  created() {},
+  created() {
+    // this.timer = setInterval(() => {
+    //   this.mapShow = window.BMap?true:false;
+    //   this.mapShow&&this.timer&&clearInterval(this.timer);
+    //   console.log(this.mapShow,window.BMap)
+    // }, 1000);
+  },
   mounted() {},
   updated() {},
-  destroyed() {},
+  destroyed() {
+    // if (this.timer) {
+    //   clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+    // }
+  },
   activated() {},
   deactivated() {}
 };
@@ -256,6 +268,7 @@ export default {
     .display();
     flex: auto;
     align-items: flex-start;
+    height: calc(100% - 257px);
     // background: var(--menu-bg);
     .left-view {
       height: 100%;
@@ -332,6 +345,7 @@ export default {
   }
   .equipment-list-content {
     flex: auto;
+    height: calc(100% - 30px);
   }
   .map-chart {
     height: 100%;

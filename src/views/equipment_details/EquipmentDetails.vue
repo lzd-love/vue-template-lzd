@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-09 17:29:14
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-11 11:40:08
+ * @LastEditTime: 2020-09-14 09:38:55
  * @Description: content description
 -->
 <template>
@@ -171,6 +171,7 @@ export default {
     flex: auto;
     align-items: flex-start;
     // background: var(--menu-bg);
+    height: calc(100% - 85px);
     .left-view {
       height: 100%;
       padding-right: 30px;

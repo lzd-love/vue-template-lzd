@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-03 23:59:26
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-09 15:17:13
+ * @LastEditTime: 2020-09-14 09:59:02
  * @Description: content description
  */
 import Vue from "vue";
@@ -21,14 +21,15 @@ import config from "@config/Global.config";
 import "@assets/less/skin.less";
 import "@assets/less/import.less";
 
-// import '../node_modules/echarts/map/js/china.js'
-import "../node_modules/echarts/dist/extension/bmap.min.js";
+// import 'echarts/map/js/china.js'
+import "@assets/js/baiduApiLocal.js";
+import "echarts/dist/extension/bmap.min.js";
 
 Vue.config.productionTip = false;
 Vue.prototype.appConfig = config;
 Vue.prototype.$axios = axios;
 Vue.prototype.$moment = moment;
-Vue.prototype.$echarts = echarts;
+window.echarts = Vue.prototype.$echarts = echarts;
 Vue.component("v-chart", VueECharts);
 Vue.use(ElementUI);
 

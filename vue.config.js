@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-04 08:54:44
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-10 16:27:33
+ * @LastEditTime: 2020-09-11 17:25:22
  * @Description: content description
  */
 const path = require("path"); //引入path模块
@@ -67,5 +67,14 @@ module.exports = {
       }
     }
   },
+  // css: {
+  //   loaderOptions: {
+  //     postcss: {
+  //       plugins: {
+
+  //       }
+  //     },
+  //   }
+  // },
   transpileDependencies: ["vue-echarts", "resize-detector"]
 };
