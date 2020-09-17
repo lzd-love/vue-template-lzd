@@ -8692,7 +8692,7 @@ window.BMAP_AUTHENTIC_KEY = "OS73ksFzj9emYwMfGhC72reaYRMy7jQE";
     pe.getTilesUrl = function(a, b, c) {
         var x=a.x,y=a.y,e=1,z=a;
         // return  "../map/images/"+b+"-"+x+"-"+y+".png";
-        return  "./static/map/images/"+x+"x"+y+"x"+z+".png";
+        return  "./static/map/images/"+x+"x"+y+"x"+b+".png";
     };
     var Na = new ke("\u5730\u56fe",pe,{
         tips: "\u663e\u793a\u666e\u901a\u5730\u56fe",

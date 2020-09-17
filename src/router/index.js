@@ -25,7 +25,7 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: "/frameView",
+    path: "/4",
     name: "FrameView",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

@@ -2,7 +2,7 @@
  * @Author: lzd
  * @Date: 2020-09-07 14:15:07
  * @LastEditors: lzd
- * @LastEditTime: 2020-09-10 11:39:14
+ * @LastEditTime: 2020-09-16 17:07:58
  * @Description: content description
 -->
 <template>
@@ -68,6 +68,9 @@ div {
 }
 /*定义最上方和最下方的按钮*/
 ::-webkit-scrollbar-button {
+  display: none;
+}
+.anchorBL {
   display: none;
 }
 </style>
